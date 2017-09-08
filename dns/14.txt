@@ -1,0 +1,3 @@
+Name	Type	Data
+(same as parent folder)	Start of Authority (SOA)	[18], iaas-170.corp.local., hostmaster.corp.local.
+(same as parent folder)	Name Server (NS)	iaas-170.corp.local.

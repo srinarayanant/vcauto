@@ -1,0 +1,21 @@
+Name	Type	Data
+(same as parent folder)	Start of Authority (SOA)	[23], iaas-170.corp.local., hostmaster.corp.local.
+(same as parent folder)	Name Server (NS)	iaas-170.corp.local.
+10.0.0.103	Pointer (PTR)	pscr1.easpnet.inc.
+10.0.0.105	Pointer (PTR)	vcm1.easpnet.inc.
+10.0.0.106	Pointer (PTR)	vcr1.easpnet.inc.
+10.0.0.107	Pointer (PTR)	nsxm1.easpnet.inc.
+10.0.0.108	Pointer (PTR)	nsxr1.easpnet.inc.
+10.0.0.120	Pointer (PTR)	rabbitmq-lb-0.easpnet.inc.
+10.0.0.156	Pointer (PTR)	vrm1.easpnet.inc.
+10.0.0.157	Pointer (PTR)	vrcs1.easpnet.inc.
+10.0.0.158	Pointer (PTR)	vrcs2.easpnet.inc.
+10.0.0.166	Pointer (PTR)	vrs1.easpnet.inc.
+10.0.0.167	Pointer (PTR)	vrs2.easpnet.inc.
+10.0.0.171	Pointer (PTR)	rmq1.easpnet.inc.
+10.0.0.172	Pointer (PTR)	rmq2.easpnet.inc.
+10.0.0.175	Pointer (PTR)	vcav-cassandra1.easpnet.inc.
+10.0.0.176	Pointer (PTR)	vcav-cassandra2.easpnet.inc.
+10.0.0.177	Pointer (PTR)	vcav-cassandra3.easpnet.inc.
+10.0.0.206	Pointer (PTR)	vcddb1.easpnet.inc.
+10.0.0.99	Pointer (PTR)	li.easpnet.inc.

@@ -1,0 +1,12 @@
+Name	Type	Data
+(same as parent folder)	Start of Authority (SOA)	[12], iaas-170.corp.local., hostmaster.corp.local.
+(same as parent folder)	Name Server (NS)	iaas-170.corp.local.
+10.0.8.14	Pointer (PTR)	vcav-portal1.easpnet.inc.
+10.0.8.15	Pointer (PTR)	vcav-portal2.easpnet.inc.
+10.0.8.16	Pointer (PTR)	vcav-proxy1.easpnet.inc.
+10.0.8.17	Pointer (PTR)	vcav-proxy2.easpnet.inc.
+10.0.8.2	Pointer (PTR)	vcdc1.easpnet.inc.
+10.0.8.21	Pointer (PTR)	vcd-nfs.easpnet.inc.
+10.0.8.3	Pointer (PTR)	vcdc2.easpnet.inc.
+10.0.8.4	Pointer (PTR)	vcdconsole1.easpnet.inc.
+10.0.8.5	Pointer (PTR)	vcdconsole2.easpnet.inc.

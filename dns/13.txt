@@ -1,0 +1,8 @@
+Name	Type	Data
+(same as parent folder)	Start of Authority (SOA)	[12], iaas-170.corp.local., hostmaster.corp.local.
+(same as parent folder)	Name Server (NS)	iaas-170.corp.local.
+10.158.13.12	Pointer (PTR)	hybrid.gwscloud.com.
+10.158.13.15	Pointer (PTR)	draas-cp.gwscloud.com.
+10.158.13.16	Pointer (PTR)	vcav-proxy1.gwscloud.com.
+10.158.13.17	Pointer (PTR)	vcav-proxy2.gwscloud.com.
+10.158.13.19	Pointer (PTR)	draas.gwscloud.com.

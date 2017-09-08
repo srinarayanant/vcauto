@@ -1,0 +1,297 @@
+
+ssh -L 3390:10.0.0.206:3389 root@10.158.15.92
+
+
+et firewall name OUTSIDE-IN default-action 'accept'
+set firewall name OUTSIDE-LOCAL default-action 'accept'
+set interfaces ethernet eth0 firewall in name 'OUTSIDE-IN'
+set interfaces ethernet eth0 firewall local name 'OUTSIDE-LOCAL'
+
+ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+
+echo "com.vmware.cell.runtime.application=com.vmware.vcloud.cloud-proxy-server.cloudProxyApplication" >> /opt/vmware/vcloud-director/etc/global.properties
+echo "m1.r1.vcav.eng.vmware.com:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0" >> /etc/fstab
+
+VCAV 
+
+1.0 installer 
+
+use sanjays document to install vCD
+
+use Rogers Bible to install VCAV
+
+Study - certificated RFCs and tools 
+
+docker run -p 10.160.193.210:15672:15672 —name 2cecf889f32a  -t someimage
+
+
+nimbus-esxdeploy --sasDisk=7416192768  falcon_m1_v6  3620759  --cpus 32 --memory 135000  --nics 2 --result=./falcon_m1_v6.json -d
+
+centurylong 
+
+
+
+
+create user vcd identified by secret default tablespace users;
+grant connect to vcd;
+alter user vcd quota unlimited on users;
+grant dba to vcd;
+commit;
+exit;
+
+
+/home/vcdnfs *(rw,no_root_squash)
+
+into /etc/exports
+
+
+delete service dhcp-server shared-network-name 'LAN' subnet '192.168.0.0/24' start '192.168.0.128' stop '192.168.0.254'
+
+
+mac1-vcav-blr.eng.vmware.com 10.112.83.10.vcmgmt
+
+mac2-vcav-blr.eng.vmware.com 10.112.83.11
+ rscvc
+
+mac3-vcav-blr.eng.vmware.com 10.112.83.12
+ nsx 
+
+
+mac4-vcav-blr.eng.vmware.com 10.112.83.13
+ - oracle
+
+mac5-vcav-blr.eng.vmware.com 10.112.83.14
+vcdnfs
+
+mac6-vcav-blr.eng.vmware.com 10.112.83.15
+vcdcell1
+
+mac7-vcav-blr.eng.vmware.com 10.112.83.16
+ vcdconsproxy1
+
+mac8-vcav-blr.eng.vmware.com 10.112.83.17  cp1
+
+
+Gw  10.112.83.253
+
+DNS 10.112.16.144
+
+Password11
+
+Password11!
+
+
+nimbus-esxdeploy --sasDisk=4416192768  f4  3620759  --cpus 32 --memory 135000 --nics 2 --result=./out.f4.json -d
+
+
+LongPassword!02$ or Longpassword!02$
+timedatectl set-timezone UTC
+
+
+chkconfig rabbitmq-server on
+
+ 
+yum install ntp ntpdate ntp-doc -y
+yum install nfs-utils nfs-utils-lib -y
+
+chkconfig firewalld off
+chkconfig ntpd on
+systemctl disable chronyd
+systemctl start ntpd
+systemctl enable ntpd
+ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+timedatectl set-timezone UTC
+systemctl disable firewalld
+systemctl stop firewalld
+timedatectl set-timezone UTC
+systemctl status firewalld
+systemctl status ntpd
+
+
+systemctl start cassandra
+systemctl enable cassandra
+systemctl status cassandra
+
+
+systemctl disable firewalld
+systemctl stop firewalld
+timedatectl set-timezone UTC
+
+set firewall name OUTSIDE-IN default-action 'accept’
+set firewall name OUTSIDE-LOCAL default-action 'accept'
+set interfaces ethernet eth0 firewall in name 'OUTSIDE-IN'
+set interfaces ethernet eth0 firewall local name 'OUTSIDE-LOCAL'
+
+
+10.112.83.18 h1-vcav-blr.eng.vmware.com rabbit
+
+10.112.83.19 h2-vcav-blr.eng.vmware.com - cassandra
+ 
+10.112.83.20 h3-vcav-blr.eng.vmware.com - 
+
+10.112.83.21 h4-vcav-blr.eng.vmware.com - vsphere rep 
+
+10.112.83.22 h5-vcav-blr.eng.vmware.com
+
+10.112.83.23 h6-vcav-blr.eng.vmware.com
+
+10.112.83.24 h7-vcav-blr.eng.vmware.com
+
+10.112.83.25 h8-vcav-blr.eng.vmware.com
+
+	 h9-vcav-blr.eng.vmware.com 	-- external 
+
+10.112.83.27 h10-vcav-blr.eng.vmware.com
+
+10.112.83.28 h11-vcav-blr.eng.vmware.com - used by nsx 
+
+10.112.83.29 h12-vcav-blr.eng.vmware.com used by nsx 
+
+
+
+
+
+
+yum install ntp ntpdate ntp-doc -y
+
+
+ifconfig ens34:cons  10.112.83.16 up
+
+
+Create certificates for alias http and consoleproxy.
+
+keytool -keystore /tmp/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias http -ext san=dns:mac6-vcav-blr.eng.vmware.com -dname "CN=mac6-vcav-blr.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+keytool -keystore /tmp/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias consoleproxy -ext san=dns:mac7-vcav-blr.eng.vmware.com -dname "CN=mac7-vcav-blr.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+
+
+yum  install nfs-utils nfs-utils-lib wget zip unzip alsa-lib bash chkconfig coreutils findutils glibc grep initscripts krb5-libs libgcc libICE libSM libstdc libX11 libXau libXdmcp libXext libXi libXt libXtst module-init-tools net-tollds pciutils procps redhat-lsb sed tar which bind-utils java-1.7.0-openjdk -y
+
+
+
+
+mac5-vcav-blr.eng.vmware.com:/home/vcdnfs
+mac5-vcav-blr.eng.vmware.com:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0
+
+
+echo "mac5-vcav-blr:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0" /etc/fstab
+
+
+echo "m1.r1.vcav.eng.vmware.com:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0" >> /etc/fstab
+
+
+/home/vcdnfs *(rw,no_root_squash)    /etc/exports
+service nfs start
+
+
+exportfs -a
+
+
+
+yum install nfs-utils nfs-utils-lib -y
+
+
+scp mac6-vcav-blr:/opt/staging/vmware-vcloud-director-distribution-8.10.1-4655196.bin /opt/staging/
+scp mac6-vcav-blr:/opt/vmware/vcloud-director/etc/responses.properties /home
+scp mac6-vcav-blr:/tmp/certificates.ks /tmp
+
+
+echo "com.vmware.cell.runtime.application=com.vmware.vcloud.cloud-proxy-server.cloudProxyApplication" >> /opt/vmware/vcloud-director/etc/global.properties
+
+
+ yum install nfs-utils nfs-utils-lib wget 
+
+
+ifconfig ens34:cons  10.112.83.16 netmask 255.255.252.0 broadcast 10.112.83.255
+echo "nameserver 10.112.16.144" >> /etc/resolv.conf
+route add default gw 10.112.83.253
+
+
+
+scp mac6-vcav-blr.eng.vmware.com:/opt/vmware/vcloud-director/etc/responses.properties /home
+
+
+keytool -keystore /tmp/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias http -ext san=dns:mac6-vcav-blr.eng.vmware.com -dname "CN=*.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+keytool -keystore /tmp/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias consoleproxy -ext san=dns:mac6-vcav-blr.eng.vmware.com -dname "CN=*.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+
+
+
+ip route flush all
+
+ifconfig ens160:cons 192.168.254.254 up
+rpm -e vmware-vcloud-director vmware-vcloud-director-rhel
+
+
+https://mac6-vcav-blr.eng.vmware.com/api/admin/hybrid/settings
+
+
+
+
+mkdir server
+cd server
+openssl genrsa -out key.pem 2048
+openssl req -new -key key.pem -out req.pem -outform PEM \
+    -subj /CN=$(hostname)/O=server/ -nodes
+ 
+cd /etc/rabbitmq/testca
+openssl ca -config openssl.cnf -in /etc/rabbitmq/server/req.pem -out \
+    /etc/rabbitmq/server/cert.pem -notext -batch -extensions server_ca_extensions
+ 
+cd /etc/rabbitmq/server
+openssl pkcs12 -export -out keycert.p12 -in cert.pem -inkey key.pem -passout pass:MySecretPassword
+
+
+http://pubs.vmware.com/vcloud-availability-for-vcd-101/index.jsp#com.vmware.vcavcd.install.doc/GUID-AC63692F-0288-4F49-8D4D-9F837D1E4FE5.html
+
+
+
+CN=h1-vcav-blr.eng.vmware.com PASSWORD=vmware make
+
+wget https://github.com/michaelklishin/tls-gen/archive/master.zip 
+unzip master.zip
+cd tls-get-master/basic
+
+ 	
+
+
+cassandra 
+
+
+/opt/jdk1.7.0_79/bin/keytool -keystore /etc/cassandra/conf/.keystore \
+-storepass vmware -validity 365 -storetype JKS -genkey -keyalg RSA \
+-alias ${CASS_NODE} -dname 'cn=${CASS_NODE}, ou=eng, o=VMware, c=US' \
+-keypass vmware
+
+
+
+
+4945120
+
+
+RABBIT
+
+
+
+https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html
+
+
+
+Updating / installing...
+   1:vmware-vcloud-director-rhel-8.10.################################# [ 33%]
+   2:vmware-vcloud-director-8.10.0-387################################# [ 67%]
+   3:vmware-phonehome-1.0.0-3813496   ################################# [100%]
+
+
+
+/bin/appliancesh root
+
+
+
+echo  '/home/vcdnfs *(rw,no_root_squash)' >> /etc/exports
+
+service nfs start
+chkconfig nfs on
+exportfs -a
+
+
+
+echo '172.31.5.230:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0' >> /etc/fstab

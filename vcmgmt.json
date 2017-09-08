@@ -1,0 +1,38 @@
+{
+    "__version": "1.2.0",
+    "__comments": "VCMGMT a vCenter Server Appliance with an embedded Platform Services Controller on an ESXi host.",
+    "target.vcsa": {
+        "appliance": {
+            "deployment.network": "EASPNET",
+            "deployment.option": "small",
+            "name": "vcmgmt",
+            "thin.disk.mode": false
+        },
+        "esxi": {
+            "hostname": "10.156.78.43",
+            "username": "root",
+            "password": "ca$hc0w",
+            "datastore": "DR2CPOD-DATASTORE"
+        },
+        "network": {
+            "hostname": "vcm1.easpnet.inc",
+            "ip.family": "ipv4",
+            "mode": "static",
+            "ip": "10.0.0.105",
+            "dns.servers": [
+                "10.158.14.1"
+            ],
+            "prefix": "24",
+            "gateway": "10.0.0.254"
+        },
+        "os": {
+            "password": "Supernova1!",
+            "ssh.enable": true
+        },
+        "sso": {
+            "password": "Supernova1!",
+            "domain-name": "vsphere.local",
+            "site-name": "mgmt"
+        }
+    }
+}

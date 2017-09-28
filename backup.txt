@@ -1,0 +1,96 @@
+
+
+Hosts are added in DNS. 
+mac1-vcav-blr.eng.vmware.com 10.112.83.10
+mac2-vcav-blr.eng.vmware.com 10.112.83.11
+mac3-vcav-blr.eng.vmware.com 10.112.83.12
+mac4-vcav-blr.eng.vmware.com 10.112.83.13
+mac5-vcav-blr.eng.vmware.com 10.112.83.14
+mac6-vcav-blr.eng.vmware.com 10.112.83.15
+
+
+mac7-vcav-blr.eng.vmware.com 10.112.83.16
+mac8-vcav-blr.eng.vmware.com 10.112.83.17
+
+10.112.83.18 h1-vcav-blr.eng.vmware.com esx base
+10.112.83.19 h2-vcav-blr.eng.vmware.com esx m1 ---
+10.112.83.20 h3-vcav-blr.eng.vmware.com esx r1
+
+
+
+
+
+10.112.83.21 h4-vcav-blr.eng.vmware.com vcd db
+
+10.112.83.22 h5-vcav-blr.eng.vmware.com  - 
+10.112.83.23 h6-vcav-blr.eng.vmware.com  vcm1
+10.112.83.24 h7-vcav-blr.eng.vmware.com  vcr1
+10.112.83.25 h8-vcav-blr.eng.vmware.com   nsxm1
+10.112.83.26 h9-vcav-blr.eng.vmware.com   nsxr1
+10.112.83.27 h10-vcav-blr.eng.vmware.com  vcdc1	
+10.112.83.28 h11-vcav-blr.eng.vmware.com  vcdconsole1
+10.112.83.29 h12-vcav-blr.eng.vmware.com  vcdnfs
+
+
+
+
+ /vc/vcsa-cli-installer/lin64/vcsa-deploy install  --accept-eula  --skip-ovftool-verification  --no-esx-ssl-verify -v /home/vcrc_vmw.json  --log-dir /home/logr2/
+
+ 
+
+
+  Category:    Network properties (When DNS, IP address, etc are left blank, 
+               these properties will be supplied by DHCP server (LESS SECURE)) 
+  Label:       Network 1 IPv4 Address
+  Type:        string
+  Description: The IPv4 Address for this interface.
+
+  Key:         
+  Category:    Network properties (When DNS, IP address, etc are left blank, 
+               these properties will be supplied by DHCP server (LESS SECURE)) 
+  Label:       Network 1 Netmask
+  Type:        string
+  Description: The netmask for this interface.
+
+  Key:         
+
+
+
+
+
+Super
+
+
+
+scp root@10.112.83.18:/vmfs/volumes/586cf2c5-1a6ecba2-10b0-1866da697a05/iso/CentOS/CentOS7.iso .
+
+yum install -y  alsa-lib     bash chkconfig coreutils findutils glibc grep initscripts krb5-libs libgcc libICE libSM libstdc++ libX11 libXau libXdmcp libXext libXi libXt libXtst module-init-tools net-tools pciutils procps redhat-lsb sed tar which
+
+
+
+
+
+keytool -keystore /opt/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias http -ext san=ip:10.112.83.27,dns:h10-vcav-blr.eng.vmware.com,ip:10.112.83.28,dns:h11-vcav-blr.eng.vmware.com -dname "CN=h10-vcav-blr.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+
+
+keytool -keystore /opt/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias consoleproxy -ext san=ip:10.112.83.27,dns:h10-vcav-blr.eng.vmware.com,ip:10.112.83.28,dns:h11-vcav-blr.eng.vmware.com -dname "CN=h10-vcav-blr.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+
+keytool -keystore /opt/certificates.ks -storetype JCEKS -storepass passwd -genkey -keyalg RSA -validity 360 -keysize 2048 -alias  -ext san=ip:10.112.83.27,dns:h10-vcav-blr.eng.vmware.com -dname "CN=h10-vcav-blr.eng.vmware.com, OU=eng, O=vmware.com, L=Palo Alto S=California  C=US"
+
+
+
+
+
+
+mkdir /home/vcdnfs
+echo  '/home/vcdnfs *(rw,no_root_squash)' >> /etc/exports
+
+
+echo '10.112.83.29:/home/vcdnfs /opt/vmware/vcloud-director/data/transfer nfs intr 0 0' >> /etc/fstab
+
+Command> ntp.server.add --servers time.vmware.com
+Command> timesync.set --mode NTP
+Command> ntp.get
+
+cent
+
